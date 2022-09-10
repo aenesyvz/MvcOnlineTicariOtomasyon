@@ -1,0 +1,28 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Staff
+@{
+    ViewBag.Title = "GetStaff";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Personel Bilgileri</h2>
+<br />
+@using (Html.BeginForm("UpdateStaff", "Staff", FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id)
+        @Html.LabelFor(x => x.FirstName)
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.LastName)
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Image)
+        @*Html.TextBoxFor(x => x.Image, new { @class = "form-control" })*@
+        <input type="file" name="Image" />
+        <br />
+        @Html.LabelFor(x => x.Department)
+        @Html.DropDownListFor(x => x.DepartmentId,(List<SelectListItem>)ViewBag.valueDepartments, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary">Kaydet</button>
+    </div>
+}

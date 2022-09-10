@@ -1,0 +1,33 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<BillPen>
+@{
+    ViewBag.Title = "DetailBill";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+<h2>Fatura Kalemleri</h2>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AÇIKLAMA</th>
+        <th>MİKTAR</th>
+        <th>BİRİM FİYAT</th>
+        <th>TUTAR</th>
+    </tr>
+    @foreach (var bill in Model)
+    {
+        
+        <tr>
+            <td>@bill.Id</td>
+            <td>@bill.Statement</td>
+            <td>@bill.Amount</td>
+            <td>@bill.UnitPrice ₺</td>
+            <td>@bill.Total ₺</td>
+
+        
+
+</tr>
+    }
+</table>
+<a href="/Bill/NewPen/" class="btn btn-warning">Yeni Kalem Girişi</a>

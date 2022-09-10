@@ -1,0 +1,23 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/CurrentlyLayout.cshtml";
+}
+<br/>
+<h2>Siparişlerim</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model) {
+        <tr>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Total</td>
+            <td>@x.SaleDate</td>
+        </tr>
+    }
+</table>
+

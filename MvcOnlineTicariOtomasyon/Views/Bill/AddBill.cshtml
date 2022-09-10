@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Bill
+@{
+    ViewBag.Title = "AddBill";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.Id)
+    @Html.LabelFor(x => x.SerialNumber)
+    @Html.TextBoxFor(x => x.SerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SequenceNumber)
+    @Html.TextBoxFor(x => x.SequenceNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Total)
+    @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BillDate)
+    @Html.TextBoxFor(x => x.BillDate, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BillTime)
+    @Html.TextBoxFor(x => x.BillTime, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Submitter)
+    @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DeliveryArea)
+    @Html.TextBoxFor(x => x.DeliveryArea, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAdministration)
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+

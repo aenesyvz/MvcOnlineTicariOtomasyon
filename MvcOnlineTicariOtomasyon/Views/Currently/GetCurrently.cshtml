@@ -1,0 +1,26 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Currently
+@{
+    ViewBag.Title = "GetCurrently";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Cari Güncelleme</h2>
+<br />
+@using (Html.BeginForm("UpdateCurrently", "Currently", FormMethod.Post)) { 
+<div class="form-group">
+    @Html.HiddenFor(x=>x.Id)
+    @Html.LabelFor(x => x.FirstName)
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.LastName)
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.City)
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</div>
+}

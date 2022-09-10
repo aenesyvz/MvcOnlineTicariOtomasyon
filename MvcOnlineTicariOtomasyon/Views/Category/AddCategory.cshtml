@@ -1,0 +1,21 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br/>
+<h2>Yeni Kategori Sayfası</h2>
+<br/>
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.CategoryName)
+    @Html.TextBoxFor(x=>x.CategoryName,new { @class="form-control"})
+    <br/>
+    <button class="btn btn-info" id="btn1">Kaydet</button>
+    <script>
+        $('#btn1').click(function () {
+            alert("Kategori başarıyla eklendi!")
+        });
+    </script>
+</form>
+

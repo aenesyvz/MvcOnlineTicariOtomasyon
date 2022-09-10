@@ -1,0 +1,57 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Satışlar</h2>
+<br />
+<table id="tbl1" class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ÜRÜN</th>
+            <th>CARİ</th>
+            <th>PERSONEL</th>
+            <th>ADET</th>
+            <th>FİYAT</th>
+            <th>TOPLAM</th>
+            <th>TARİH</th>
+            <th>GÜNCELLE</th>
+            <th>DETAYLAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sale in Model)
+        {
+            <tr>
+                <td>@sale.Id</td>
+                <td>@sale.Product.ProductName</td>
+                <td>@sale.Currently.FirstName @sale.Currently.LastName</td>
+                <td>@sale.Staff.FirstName @sale.Staff.LastName</td>
+                <td>@sale.Amount</td>
+                <td>@sale.UnitPrice ₺</td>
+                <td>@sale.Total ₺</td>
+                <td>@sale.SaleDate</td>
+                <td><a href="/Sale/GetSale/@sale.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Sale/SaleDetail/@sale.Id" class="btn btn-warning">Detaylar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Sale/AddSale/" class="btn btn-info">Satış Ekle</a>
+<!--<link href="~/Content/bootstrap.css" rel="stylesheet" />-->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>$('#tbl1').dataTable({});</script>

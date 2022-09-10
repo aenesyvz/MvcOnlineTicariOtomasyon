@@ -1,0 +1,82 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Bill>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Faturalar</h2>
+<br />
+<table class="table table-striped" style="margin-top:20px">
+    <tr>
+       
+        <th>SERİ NO</th>
+        <th>SIRA NO</th>
+        <th>VERGİ DAİRESİ</th>
+        <th>TARİH</th>
+        <th>SAAT</th>
+        <th>TOPLAM</th>
+        <th>TESLİM EDEN</th>
+        <th>TESLİM ALAN</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+        <th>YENİ KALEM</th>
+    </tr>
+    @foreach (var bill in Model)
+    {
+<tr>
+
+    <td>@bill.SerialNumber</td>
+    <td>@bill.SequenceNumber</td>
+    <td>@bill.TaxAdministration</td>
+    <td>@bill.BillDate</td>
+    <td>@bill.BillTime</td>
+    <td>@bill.Total ₺</td>
+    <td>@bill.Submitter</td>
+    <td>@bill.DeliveryArea</td>
+    <td>
+        <a href="/Bill/GetBill/@bill.Id" class="btn btn-danger">Güncelle</a>
+    </td>
+    <td>
+        <a href="/Bill/DetailBill/@bill.Id" class="btn btn-warning">Detaylar</a>
+    </td>
+   
+    <td>
+        <a href="/Bill/DetailBill/@bill.Id" class="btn btn-default" style="background-color:dodgerblue">Kalem</a>
+    </td>
+</tr>
+    }
+</table>
+<a href="/Bill/AddBill/" class="btn btn-info">Fatura Ekle</a>
+<br/><br/>
+<button type="button" class="btn btn-default" style="background-color:darkgrey"
+        data-toggle="modal" data-target="#Modal1">Popup Penceresi</button>
+
+<div class="modal" id="Modal1" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Popup Dialog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.SerialNumber</td>
+                    <td>@x.SequenceNumber</td>
+                    <td>@x.Total</td>
+                </tr>
+            }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
